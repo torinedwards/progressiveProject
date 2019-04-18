@@ -1,0 +1,23 @@
+#!/bin/bash
+
+HERE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+cd $HERE/..
+
+for d in $(find . -maxdepth 2  -name package.json | cut -d '/' -f 2); do 
+    pushd $d
+    npm i
+    npm i eslint eslint-config-google
+    CONFIG=../.eslintrc.json
+    grep "react" package.json
+    if [ $? = 1 ]; then
+        echo "Using the adjusted config"
+        cat $CONFIG | sed -e 's/"react-app",//g' > .eslintrc.json
+        echo $(cat .eslintrc.json)
+        npx eslint --no-eslintrc -c ./.eslintrc.json . || exit 1
+    else
+        echo "Using the default config"
+        npx eslint -c ../.eslintrc.json . || exit 1
+    fi
+    popd
+done || exit 1
