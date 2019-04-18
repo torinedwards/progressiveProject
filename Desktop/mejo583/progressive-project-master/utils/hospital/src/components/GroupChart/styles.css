@@ -1,0 +1,67 @@
+.unc circle {
+    fill: cornflowerblue;
+}
+
+.duke circle {
+    fill: navy;
+}
+.wakemed circle {
+    fill: crimson;
+}
+.tooltip {
+    width: 300px;
+    height: 200px;
+    background: white;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0,0.45);
+    position: absolute;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.tooltip-content {
+    width: auto;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.right-justified {
+    text-align: right;
+}
+.center-justified {
+    text-align: center;
+}
+.tooltip-content .value {
+    text-transform: capitalize;
+}
+.tooltip-content .header {
+    font-size: .7rem
+}
+.tooltip-tail {
+    border-top: 15px solid white;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    width: 1px;
+    position: absolute;
+    top: 200px;
+    left: 130px;
+
+}
+.all-charts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.description {
+    width: 200px;
+    overflow: hidden;
+}
+.chart-container {
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
